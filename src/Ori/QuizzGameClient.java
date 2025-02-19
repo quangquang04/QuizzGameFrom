@@ -682,11 +682,13 @@ public class QuizzGameClient extends javax.swing.JFrame {
         });
     }
     
-    
-    private void ngu() {
-    	System.out.print("chó nhan bi ngu.");
-    	
+ private void nhanngu() {
+        int i = 1;
+        int y = 3;
+        System.out.println("1 + 3 = " + (i + y));
+        System.out.print("chó nhan bị ngu.");
     }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddQuestion;
