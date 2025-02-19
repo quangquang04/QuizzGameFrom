@@ -21,7 +21,7 @@ public class QuizzGame extends javax.swing.JFrame {
     public QuizzGame() {
         initComponents();
         //set full screen
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);				//Hehe
     }
 
     @SuppressWarnings("unchecked")
