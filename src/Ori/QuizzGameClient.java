@@ -689,6 +689,10 @@ public class QuizzGameClient extends javax.swing.JFrame {
         System.out.print("chó nhan bị ngu.");
     }
 
+ public void ChoQuang(){
+	System.out.print("QUang ngu <3");
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddQuestion;
     private javax.swing.JButton btnChangeTypeGameOlympia;
