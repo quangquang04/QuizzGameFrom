@@ -681,6 +681,9 @@ public class QuizzGameClient extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+    private void ngu() {}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddQuestion;
