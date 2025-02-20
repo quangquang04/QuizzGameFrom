@@ -253,24 +253,72 @@ public class QuizzGame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     //Huy
-    private void txtAnswerAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAnswerAMouseClicked
-        
-    }//GEN-LAST:event_txtAnswerAMouseClicked
+    public QuizzGame() {
+        initComponents();
+        //set full screen
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    }
+
     
     //Huy
-    private void txtAnswerBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAnswerBMouseClicked
-        
-    }//GEN-LAST:event_txtAnswerBMouseClicked
+    private void txtAnswerAMouseClicked(java.awt.event.MouseEvent evt) {                                        
+        // TODO add your handling code here:
+        if (QuizzGameClient.listQuest.get(indexQuestion).getAnswerA().equals(QuizzGameClient.listQuest.get(indexQuestion).getTrueAnswer())) {
+            displayCorrectMessage();
+
+            QuizzGameClient.listQuest.remove(indexQuestion);
+            score += 10;
+            txtScore.setText("" + score);
+            displayRandomQuestion();
+        } else {
+            displayNotCorrectMessage();
+            QuizzGameClient.listQuest.remove(indexQuestion);
+            score = 0;
+            txtScore.setText("" + score);
+            displayRandomQuestion();
+        }
+    }
+
     
     //Huy
-    private void txtAnswerCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAnswerCMouseClicked
-        
-    }//GEN-LAST:event_txtAnswerCMouseClicked
+    private void txtAnswerBMouseClicked(java.awt.event.MouseEvent evt) {                                        
+        // TODO add your handling code here:
+        if (QuizzGameClient.listQuest.get(indexQuestion).getAnswerB().equals(QuizzGameClient.listQuest.get(indexQuestion).getTrueAnswer())) {
+            displayCorrectMessage();
+
+            QuizzGameClient.listQuest.remove(indexQuestion);
+            score += 10;
+            txtScore.setText("" + score);
+            displayRandomQuestion();
+        } else {
+            displayNotCorrectMessage();
+            QuizzGameClient.listQuest.remove(indexQuestion);
+            score = 0;
+            txtScore.setText("" + score);
+            displayRandomQuestion();
+        }
+    }   
+
     
     //Huy
-    private void txtAnswerDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAnswerDMouseClicked
-        
-    }//GEN-LAST:event_txtAnswerDMouseClicked
+    private void txtAnswerCMouseClicked(java.awt.event.MouseEvent evt) {                                        
+        // TODO add your handling code here:
+        if (QuizzGameClient.listQuest.get(indexQuestion).getAnswerC().equals(QuizzGameClient.listQuest.get(indexQuestion).getTrueAnswer())) {
+            displayCorrectMessage();
+
+            QuizzGameClient.listQuest.remove(indexQuestion);
+            score += 10;
+            txtScore.setText("" + score);
+            displayRandomQuestion();
+        } else {
+            displayNotCorrectMessage();
+            QuizzGameClient.listQuest.remove(indexQuestion);
+            score = 0;
+            txtScore.setText("" + score);
+            displayRandomQuestion();
+        }
+    }
+
     
     //Kiet
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
