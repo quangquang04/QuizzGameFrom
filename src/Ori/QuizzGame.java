@@ -273,14 +273,24 @@ public class QuizzGame extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAnswerDMouseClicked
     
     //Kiet
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        
-    }//GEN-LAST:event_btnExitActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        // TODO add your handling code here:
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        dispose();
+    }
+
     
     //Kiet
-    private void btnReplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReplayActionPerformed
-        
-    }//GEN-LAST:event_btnReplayActionPerformed
+    private void btnReplayActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        // TODO add your handling code here:
+        QuizzGameClient.listQuest.clear();
+        QuizzGameClient.inputData();
+        displayRandomQuestion();
+        score = 0;
+        txtTienThuong.setText("0 VNĐ");
+        txtScore.setText("" + score);
+    }  
+
 
     private void txtAnswerAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnswerAActionPerformed
 
