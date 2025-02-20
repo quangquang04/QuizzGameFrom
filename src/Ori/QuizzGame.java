@@ -297,14 +297,31 @@ public class QuizzGame extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAnswerAActionPerformed
     
     //Kiet
-    private void btnGiveUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGiveUpActionPerformed
-        
-    }//GEN-LAST:event_btnGiveUpActionPerformed
+    private void btnGiveUpActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        // TODO add your handling code here:
+        cleanQuestion();
+        displayScoreMessage();
+    }   
+
     
     //Kiet
     public boolean displayRandomQuestion() {
-        
+        if (QuizzGameClient.listQuest.size() == 0) {
+            cleanQuestion();
+            displayScoreMessage();
+            return false;
+        }
+
+        setScore();
+        indexQuestion = QuizzGameClient.getRandomNumberZeroTo(QuizzGameClient.listQuest.size());
+        txtQuestion.setText(QuizzGameClient.listQuest.get(indexQuestion).getQuestion());
+        txtAnswerA.setText(QuizzGameClient.listQuest.get(indexQuestion).getAnswerA());
+        txtAnswerB.setText(QuizzGameClient.listQuest.get(indexQuestion).getAnswerB());
+        txtAnswerC.setText(QuizzGameClient.listQuest.get(indexQuestion).getAnswerC());
+        txtAnswerD.setText(QuizzGameClient.listQuest.get(indexQuestion).getAnswerD());
+        return true;
     }
+
     //Kiet
     public void cleanQuestion() {
         
