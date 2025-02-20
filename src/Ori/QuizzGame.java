@@ -301,27 +301,63 @@ public class QuizzGame extends javax.swing.JFrame {
     }
     //Nhan
     public static void displayMessage(String message, int displayTimeInSeconds) {
-        
+        // Tạo JDialog từ JOptionPane với thông báo
+        JOptionPane pane = new JOptionPane(message, JOptionPane.INFORMATION_MESSAGE);
+        JDialog dialog = pane.createDialog(null, "Thông báo");
+
+        // Đảm bảo hộp thoại hiển thị được gọi trên luồng sự kiện chính
+        SwingUtilities.invokeLater(() -> {
+            dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+            dialog.setVisible(true);  // Hiển thị dialog
+        });
+
+        // Sử dụng javax.swing.Timer để tắt dialog sau một khoảng thời gian
+        javax.swing.Timer timer = new javax.swing.Timer(displayTimeInSeconds * 1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dialog.dispose();  // Đóng thông báo sau thời gian đã định
+            }
+        });
+
+        timer.setRepeats(false);  // Đảm bảo Timer chỉ chạy một lần
+        timer.start();  // Bắt đầu Timer
     }
+
     
     //Nhan
     public void displayCorrectMessage() {
-        
+         displayMessage("Chính xác !", 1);
     }
     
     //Nhan
     public void displayNotCorrectMessage() {
-        
+        // Gọi phương thức chung để hiển thị thông báo "Sai rồi !"
+        displayMessage("Sai rồi !\nĐáp án đúng: " + QuizzGameClient.listQuest.get(indexQuestion).getTrueAnswer(), 2);
+
     }
     
     //Nhan
     public void displayScoreMessage() {
-        
+        QuizzGameClient.inputData();
+        displayMessage("Tổng điểm của bạn: " + score + "/" + QuizzGameClient.listQuest.size() * 10 + "\nTiền thưởng nhận được: " + txtTienThuong.getText(), 30);
+        QuizzGameClient.listQuest.clear();
+
     }
     
     //Nhan
     public void setScore() {
-        
+        if (score < 50) {
+            txtTienThuong.setText(score * 10000 + " VNĐ");
+        } else if (score < 100) {
+            txtTienThuong.setText(score * 100000 + " VNĐ");
+        } else if (score < 150) {
+            txtTienThuong.setText(score * 100000 + " VNĐ");
+        } else if (score < 200) {
+            txtTienThuong.setText(score * 1000000 + " VNĐ");
+        } else {
+            txtTienThuong.setText("50000000 VNĐ");
+        }
+
     }
 
 
