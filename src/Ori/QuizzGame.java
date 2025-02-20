@@ -279,6 +279,7 @@ public class QuizzGame extends javax.swing.JFrame {
         dispose();
     }
 
+
     
     //Kiet
     private void btnReplayActionPerformed(java.awt.event.ActionEvent evt) {                                          
@@ -291,11 +292,6 @@ public class QuizzGame extends javax.swing.JFrame {
         txtScore.setText("" + score);
     }  
 
-
-    private void txtAnswerAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnswerAActionPerformed
-
-    }//GEN-LAST:event_txtAnswerAActionPerformed
-    
     //Kiet
     private void btnGiveUpActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
@@ -322,6 +318,7 @@ public class QuizzGame extends javax.swing.JFrame {
         return true;
     }
 
+
     //Kiet
     public void cleanQuestion() {
         txtAnswerA.setText("");
@@ -330,6 +327,7 @@ public class QuizzGame extends javax.swing.JFrame {
         txtAnswerD.setText("");
         txtQuestion.setText("");
     }
+
 
     //Nhan
     public static void displayMessage(String message, int displayTimeInSeconds) {
