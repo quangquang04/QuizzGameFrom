@@ -324,8 +324,13 @@ public class QuizzGame extends javax.swing.JFrame {
 
     //Kiet
     public void cleanQuestion() {
-        
+        txtAnswerA.setText("");
+        txtAnswerB.setText("");
+        txtAnswerC.setText("");
+        txtAnswerD.setText("");
+        txtQuestion.setText("");
     }
+
     //Nhan
     public static void displayMessage(String message, int displayTimeInSeconds) {
         
