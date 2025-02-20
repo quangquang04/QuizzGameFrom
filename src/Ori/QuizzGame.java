@@ -321,32 +321,62 @@ public class QuizzGame extends javax.swing.JFrame {
 
     
     //Kiet
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        
-    }//GEN-LAST:event_btnExitActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        // TODO add your handling code here:
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        dispose();
+    }
+
+
     
     //Kiet
-    private void btnReplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReplayActionPerformed
-        
-    }//GEN-LAST:event_btnReplayActionPerformed
+    private void btnReplayActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        // TODO add your handling code here:
+        QuizzGameClient.listQuest.clear();
+        QuizzGameClient.inputData();
+        displayRandomQuestion();
+        score = 0;
+        txtTienThuong.setText("0 VNĐ");
+        txtScore.setText("" + score);
+    }  
 
-    private void txtAnswerAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnswerAActionPerformed
-
-    }//GEN-LAST:event_txtAnswerAActionPerformed
-    
     //Kiet
-    private void btnGiveUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGiveUpActionPerformed
-        
-    }//GEN-LAST:event_btnGiveUpActionPerformed
+    private void btnGiveUpActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        // TODO add your handling code here:
+        cleanQuestion();
+        displayScoreMessage();
+    }   
+
     
     //Kiet
     public boolean displayRandomQuestion() {
-        
+        if (QuizzGameClient.listQuest.size() == 0) {
+            cleanQuestion();
+            displayScoreMessage();
+            return false;
+        }
+
+        setScore();
+        indexQuestion = QuizzGameClient.getRandomNumberZeroTo(QuizzGameClient.listQuest.size());
+        txtQuestion.setText(QuizzGameClient.listQuest.get(indexQuestion).getQuestion());
+        txtAnswerA.setText(QuizzGameClient.listQuest.get(indexQuestion).getAnswerA());
+        txtAnswerB.setText(QuizzGameClient.listQuest.get(indexQuestion).getAnswerB());
+        txtAnswerC.setText(QuizzGameClient.listQuest.get(indexQuestion).getAnswerC());
+        txtAnswerD.setText(QuizzGameClient.listQuest.get(indexQuestion).getAnswerD());
+        return true;
     }
+
+
     //Kiet
     public void cleanQuestion() {
-        
+        txtAnswerA.setText("");
+        txtAnswerB.setText("");
+        txtAnswerC.setText("");
+        txtAnswerD.setText("");
+        txtQuestion.setText("");
     }
+
+
     //Nhan
     public static void displayMessage(String message, int displayTimeInSeconds) {
         // Tạo JDialog từ JOptionPane với thông báo
